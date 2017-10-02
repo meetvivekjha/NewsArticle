@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,6 +92,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             holder.desription.setText(arcpos.getDescription());
         }else{
             holder.desription.setVisibility(View.GONE);
+            Log.d("TAG", "onBindViewHolder: check code");
         }
 
         if (!TextUtils.isEmpty(arcpos.getPublishedAt())) {
