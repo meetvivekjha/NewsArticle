@@ -87,16 +87,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         holder.title.setText(arcpos.getTitle());
         if(!TextUtils.isEmpty(arcpos.getDescription())){
+            holder.date.setVisibility(View.VISIBLE);
             holder.desription.setText(arcpos.getDescription());
         }else{
-            holder.desription.setText("NO DESCRIPTION FOUND");
+            holder.desription.setVisibility(View.GONE);
         }
 
         if (!TextUtils.isEmpty(arcpos.getPublishedAt())) {
+            holder.date.setVisibility(View.VISIBLE);
             String parsedDate=arcpos.getPublishedAt().substring(0,10);
             holder.date.setText(parsedDate);
         }else {
-            holder.date.setText("Date not provided");
+            holder.date.setVisibility(View.GONE);
         }
 
         if (!TextUtils.isEmpty(arcpos.getUrlToImage()))
