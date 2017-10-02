@@ -44,8 +44,8 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
     private SourceAdapter sourceAdapter;
     Context context;
     AdView madview;
+    int itemid;
     NavigationView navigation;
-    NavigationView navigationView;
     final private String apiKey="414785b466474d9491ff6e63c70dd2f5";
     private DrawerLayout drawerLayout;
     private ProgressBar progressbar;
@@ -63,6 +63,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
         navigation= (NavigationView) findViewById(R.id.navigation);
         navigation.setItemIconTintList(null);//set icon with default color
        // navigation.getBackground().setAlpha(175);//for trasperency of drawer
+        navigation.setCheckedItem(R.id.home);
 
         hashMap=new HashMap<>();
 
@@ -97,9 +98,6 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
         recyclerViewSource.setAdapter(sourceAdapter);
        // Log.d("TAG", "onCreate: setting the Adapter");
         sourceAdapter.setClickListener(this);
-
-        MainActivity mainActivity=new MainActivity(getApplicationContext());
-        //mainActivity.sethomebutton(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Home");
@@ -174,7 +172,6 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
 
             @Override
             public void onDrawerOpened(View drawerView) {
-               // getSupportActionBar().setTitle("Categories");
 
             }
 
@@ -329,8 +326,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
 
                 progressbar.setVisibility(View.VISIBLE);
 
-                int itemid=item.getItemId();
-
+                itemid=item.getItemId();
                 if (itemid==R.id.home){
                     apiCall("");
                 }
@@ -375,13 +371,11 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
                 else if (itemid==R.id.technology){
                     apiCall("technology");
                 }
-                
+
                 Toast.makeText(NavigationActivity.this,item.getTitle(),Toast.LENGTH_SHORT).show();
 
                 if (itemid==R.id.hindi){
-                    itemid=R.id.home;
-                    getSupportActionBar().setTitle("Home");
-                    navigation.setCheckedItem(itemid);
+
                 }else {
                     navigation.setCheckedItem(itemid);
                     getSupportActionBar().setTitle(item.getTitle().toString());

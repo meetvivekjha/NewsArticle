@@ -197,4 +197,5 @@ public class HindiActivity extends AppCompatActivity implements HindiNewsAdapter
         intent.putExtras(extras);
         startActivity(intent);
     }
+
 }
