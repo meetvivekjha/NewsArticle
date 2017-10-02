@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NewsArticle</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="close_drawer">Drawer close</string>
+    <string name="open_drawer">Drawer opened</string>
+
+    <string name="banner_home_footer">ca-app-pub-8566019934389458/1737793865</string>
+</resources>

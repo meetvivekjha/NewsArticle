@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="#DEFFFFFF">
+
+
+
+        <ImageView
+            android:id="@+id/icon_iv_hindi"
+            android:layout_width="157dp"
+            android:layout_height="157dp"/>
+
+            <TextView
+                android:id="@+id/name_tv_hindi"
+                android:layout_width="157dp"
+                android:textColor="#DEFFFFFF"
+                android:textSize="16sp"
+                android:lineSpacingExtra="15sp"
+                android:layout_height="78dp"
+                android:layout_alignParentBottom="true"
+                android:paddingBottom="4dp"
+                android:paddingLeft="4dp"
+                android:gravity="bottom"
+                android:background="@drawable/gradient" />
+
+
+
+
+
+</RelativeLayout>
