@@ -322,9 +322,8 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
     }
 
     private void setNavigationDrawer() {
-        navigationView= (NavigationView) findViewById(R.id.navigation);
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -376,11 +375,19 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
                 else if (itemid==R.id.technology){
                     apiCall("technology");
                 }
-                getSupportActionBar().setTitle(item.getTitle().toString());
-
+                
                 Toast.makeText(NavigationActivity.this,item.getTitle(),Toast.LENGTH_SHORT).show();
-                navigationView.setCheckedItem(itemid);
-                drawerLayout.closeDrawer(navigationView);
+
+                if (itemid==R.id.hindi){
+                    itemid=R.id.home;
+                    getSupportActionBar().setTitle("Home");
+                    navigation.setCheckedItem(itemid);
+                }else {
+                    navigation.setCheckedItem(itemid);
+                    getSupportActionBar().setTitle(item.getTitle().toString());
+                }
+
+                drawerLayout.closeDrawer(navigation);
                 progressbar.setVisibility(View.GONE);
 
                 Log.d("TAG", "onNavigationItemSelected: ");

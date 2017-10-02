@@ -94,7 +94,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             holder.desription.setVisibility(View.GONE);
             Log.d("TAG", "onBindViewHolder: check code");
         }
-
         if (!TextUtils.isEmpty(arcpos.getPublishedAt())) {
             holder.date.setVisibility(View.VISIBLE);
             String parsedDate=arcpos.getPublishedAt().substring(0,10);
