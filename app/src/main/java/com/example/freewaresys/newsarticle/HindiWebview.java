@@ -10,8 +10,13 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 public class HindiWebview extends AppCompatActivity {
     private WebView webViewHindi;
+    InterstitialAd interstitialAdHindi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +83,28 @@ public class HindiWebview extends AppCompatActivity {
         }
         else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        interstitialAdHindi=new InterstitialAd(this);
+        interstitialAdHindi.setAdUnitId(getString(R.string.interstitial_full_screen));
+        AdRequest adRequest=new AdRequest.Builder().addTestDevice("D58035577CA95969B15BBE50A1B91EFC").build();
+        interstitialAdHindi.loadAd(adRequest);
+
+        interstitialAdHindi.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                showInterstitialHindi();
+            }
+        });
+    }
+
+    private void showInterstitialHindi() {
+        if (interstitialAdHindi.isLoaded()){
+            interstitialAdHindi.show();
         }
     }
 }

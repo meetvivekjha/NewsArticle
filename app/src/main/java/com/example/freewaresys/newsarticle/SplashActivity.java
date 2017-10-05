@@ -21,13 +21,8 @@ public class SplashActivity extends Activity {
 
         anim_slide_down= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_down);
         anim_slide_down.reset();
-        // splash_tv.setVisibility(View.VISIBLE);
-        splash_tv.setText("News Article");
         splash_tv.clearAnimation();
         splash_tv.startAnimation(anim_slide_down);
-
-
-
     }
 
     @Override

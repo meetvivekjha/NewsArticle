@@ -1,6 +1,7 @@
 package com.example.freewaresys.newsarticle;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -58,11 +59,18 @@ public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder
         Source src = sourceList.get(position);
 
         if (!TextUtils.isEmpty(src.getName())) {
+            holder.name_tv.setVisibility(View.VISIBLE);
             holder.name_tv.setText(src.getName());
-        }else
-            holder.name_tv.setText("Name not found!");
+        }else {
+            holder.name_tv.setVisibility(View.GONE);
+        }
        // holder.category_tv.setText(src.getCategory());
-            Picasso.with(context).load(hasmap.get(src.getId())).resize(100,100).into(holder.icon_iv);
+        if (!TextUtils.isEmpty(src.getId())) {
+            holder.icon_iv.setVisibility(View.VISIBLE);
+            Picasso.with(context).load(hasmap.get(src.getId())).resize(100, 100).into(holder.icon_iv);
+        }else {
+            holder.icon_iv.setVisibility(View.GONE);
+        }
         }
        // holder.icon_iv.setImageResource(hasmap.get(src.getId()));
 
@@ -116,7 +124,9 @@ public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder
         public ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
+            Typeface typeface=Typeface.createFromAsset(context.getAssets(),"fonts/Bariol_Bold.otf");
             name_tv= (TextView) itemView.findViewById(R.id.name_tv);
+            name_tv.setTypeface(typeface);
             //category_tv= (TextView) itemView.findViewById(R.id.category_tv);
             icon_iv= (ImageView) itemView.findViewById(R.id.icon_iv);
 

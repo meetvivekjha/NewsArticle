@@ -1,6 +1,7 @@
 package com.example.freewaresys.newsarticle;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -65,7 +66,9 @@ public class HindiNewsAdapter extends RecyclerView.Adapter<HindiNewsAdapter.View
             super(itemView);
             Log.d("TAG", "ViewHolder: ");
             itemView.setOnClickListener(this);
+            Typeface typeface=Typeface.createFromAsset(context.getAssets(),"fonts/Bariol_Bold.otf");
             hindi_name_tv= (TextView) itemView.findViewById(R.id.name_tv_hindi);
+            hindi_name_tv.setTypeface(typeface);
             hindi_icon_iv= (ImageView) itemView.findViewById(R.id.icon_iv_hindi);
         }
 

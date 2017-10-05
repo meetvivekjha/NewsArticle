@@ -12,6 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 import java.util.List;
 
 import model.Article;
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Click
     static String source_name, title;
     private NoInternetDialog noInternetDialog;
   //  OnHomeButtonClicked onHomeButtonClicked;
+    InterstitialAd minterstitialAd;
 
     public MainActivity(){
 
@@ -162,6 +167,27 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Click
         void changeTitle();
     }*/
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+         minterstitialAd=new InterstitialAd(this);
+        minterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
+        AdRequest adRequest=new AdRequest.Builder().addTestDevice("D58035577CA95969B15BBE50A1B91EFC").build();
+        minterstitialAd.loadAd(adRequest);
+        minterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                showInterstitial();
+            }
+
+        });
+
+    }
+    private void showInterstitial() {
+        if (minterstitialAd.isLoaded()){
+            minterstitialAd.show();
+        }
+    }
 }
 
 

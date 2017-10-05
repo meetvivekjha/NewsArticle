@@ -376,10 +376,19 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
                 else if (itemid==R.id.technology){
                     apiCall("technology");
                 }
-                getSupportActionBar().setTitle(item.getTitle().toString());
 
-                Toast.makeText(NavigationActivity.this,item.getTitle(),Toast.LENGTH_SHORT).show();
-                navigationView.setCheckedItem(itemid);
+                if (itemid==R.id.hindi){
+
+                }else {
+                    getSupportActionBar().setTitle(item.getTitle().toString());
+                }
+                //Toast.makeText(NavigationActivity.this,item.getTitle(),Toast.LENGTH_SHORT).show();
+                if (itemid==R.id.hindi){
+
+                }else {
+                    navigationView.setCheckedItem(itemid);
+                }
+
                 drawerLayout.closeDrawer(navigationView);
                 progressbar.setVisibility(View.GONE);
 

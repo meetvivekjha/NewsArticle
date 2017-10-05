@@ -47,42 +47,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         return viewholder;
     }
 
-   /* public int getScreenWidth()
-    {
-        int screen_width=Resources.getSystem().getDisplayMetrics().widthPixels;
-        return screen_width;
-    }
-    public int getScreenheight() {
-        int screen_height=Resources.getSystem().getDisplayMetrics().heightPixels;
-        return screen_height;
-    }*/
-
 
     @Override
     public void onBindViewHolder(NewsAdapter.ViewHolder holder, int position) {
 
-       /* Date d = new Date();
-        String parsedDate ;
-        String dateToParse=articleList.get(position).getPublishedAt().toString();
-        SimpleDateFormat formatter=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        try {
-             d=formatter.parse(dateToParse);
-             parsedDate=formatter.format(d).toString();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        parsedDate=formatter.format(d).toString();
-       /* TimeZone timeZone=TimeZone.getTimeZone("Asia/Calcutta");
-        Calendar calendar=Calendar.getInstance(timeZone);
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        simpleDateFormat.setCalendar(calendar);
-        try {
-            calendar.setTime(simpleDateFormat.parse(articleList.get(position).getDescription().toString()));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }*/
-      //  Date date=calendar.getTime();
-      //  String parsedDate=date.toString();
         Drawable mydrawable=context.getResources().getDrawable(R.drawable.image_not_found);
         Article arcpos=articleList.get(position);
 
@@ -105,9 +73,10 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
         if (!TextUtils.isEmpty(arcpos.getUrlToImage()))
            {
+               holder.image.setVisibility(View.VISIBLE);
             Picasso.with(context).load(arcpos.getUrlToImage()).resize(145,140).into(holder.image);
         }else {
-            holder.image.setImageDrawable(mydrawable);
+            holder.image.setVisibility(View.GONE);
         }
     }
 
@@ -129,9 +98,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
             itemView.setOnClickListener(this);
             Typeface typeface=Typeface.createFromAsset(context.getAssets(),"fonts/Bariol_Bold.otf");
             title= (TextView) itemView.findViewById(R.id.title_tv);
-           // title.setTypeface(typeface);
+            title.setTypeface(typeface);
             desription= (TextView) itemView.findViewById(R.id.description_tv);
+            desription.setTypeface(typeface);
             date= (TextView) itemView.findViewById(R.id.date_tv);
+            date.setTypeface(typeface);
             image= (ImageView) itemView.findViewById(R.id.imageview);
         }
 
