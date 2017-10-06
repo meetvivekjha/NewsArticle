@@ -51,7 +51,7 @@ public class WebviewActivity extends AppCompatActivity {
                 Intent sharingIntent=new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 sharingIntent.putExtra(Intent.EXTRA_TEXT,webView.getUrl());
-                startActivity(Intent.createChooser(sharingIntent,"share this!"));
+                startActivity(Intent.createChooser(sharingIntent,"Share News via "));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -1,7 +1,9 @@
 package com.example.freewaresys.newsarticle;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -12,12 +14,17 @@ public class SplashActivity extends Activity {
     private static int splash_time_out=3000;
     Animation anim_slide_down;
     TextView splash_tv;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        this.context=SplashActivity.this;
+
+        Typeface typeface=Typeface.createFromAsset(context.getAssets(),"fonts/Bariol_Bold.otf");
         splash_tv= (TextView) findViewById(R.id.splash_tv);
+        splash_tv.setTypeface(typeface);
 
         anim_slide_down= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_down);
         anim_slide_down.reset();

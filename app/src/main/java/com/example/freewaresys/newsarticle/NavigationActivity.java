@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -44,6 +46,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
     Context context;
     AdView madview;
     NavigationView navigation;
+    boolean doubleTapToExitPressedOnce;
    // NavigationView navigationView;
     final private String apiKey="414785b466474d9491ff6e63c70dd2f5";
     private DrawerLayout drawerLayout;
@@ -401,6 +404,23 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
 
 
 }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleTapToExitPressedOnce){
+            super.onBackPressed();
+            return;
+        }
+        this.doubleTapToExitPressedOnce=true;
+        Toast.makeText(this,"Please click BACK again to Exit",Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleTapToExitPressedOnce=false;
+            }
+        },2000);
+    }
 
     @Override
     public void itemclicked(View view, int position, List<Source> sourceList) {
