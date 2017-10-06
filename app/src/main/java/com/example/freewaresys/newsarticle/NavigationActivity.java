@@ -18,7 +18,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -251,7 +250,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
         call.enqueue(new Callback<SourceResponse>() {
             @Override
             public void onResponse(Call<SourceResponse> call, Response<SourceResponse> response) {
-                Toast.makeText(NavigationActivity.this,"API success",Toast.LENGTH_SHORT).show();
+               // Toast.makeText(NavigationActivity.this,"API success",Toast.LENGTH_SHORT).show();
                 List<Source> list_of_sources=response.body().getSources();
 
 
@@ -279,7 +278,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
 
             @Override
             public void onFailure(Call<SourceResponse> call, Throwable t) {
-                Toast.makeText(NavigationActivity.this,"API failed",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(NavigationActivity.this,"API failed",Toast.LENGTH_SHORT).show();
                 progressbar.setVisibility(View.GONE);
                 FragmentManager manager=getSupportFragmentManager();
                 NoInternetDialog nointernetDialog=new NoInternetDialog();
