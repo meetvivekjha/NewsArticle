@@ -45,7 +45,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
     Context context;
     AdView madview;
     NavigationView navigation;
-    NavigationView navigationView;
+   // NavigationView navigationView;
     final private String apiKey="414785b466474d9491ff6e63c70dd2f5";
     private DrawerLayout drawerLayout;
     private ProgressBar progressbar;
@@ -63,6 +63,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
         navigation= (NavigationView) findViewById(R.id.navigation);
         navigation.setItemIconTintList(null);//set icon with default color
        // navigation.getBackground().setAlpha(175);//for trasperency of drawer
+        navigation.setCheckedItem(R.id.home);
 
         hashMap=new HashMap<>();
 
@@ -215,37 +216,6 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
 
 
 
- /*   @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.search_menu,menu);
-
-         //MenuItem item=menu.findItem(R.id.search);
-         //SearchView searchView= (SearchView) MenuItemCompat.getActionView(item);
-        SearchView searchView = (SearchView) menu.findItem(R.id.search).getActionView();
-        //search(searchView);
-        return true;
-    }
-
-    private void search(SearchView searchView) {
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                //final List<Source> mfilteredlist=filter(msourceList,newText);
-                sourceAdapter.getFilter().filter(newText);
-                return true;
-            }
-        });
-    }*/
-
-
-
    @Override //for itemclick listener on hamburger icon
        public boolean onOptionsItemSelected(MenuItem item) {
        Log.d("TAG", "onOptionsItemSelected: ");
@@ -301,6 +271,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
 
                 Log.d("TAG", "no. of Sources:: "+"\n"+list_of_sources.size());
 
+
                /* for (Source source:list_of_sources){
                     Log.d("TAG","Name of Source::\t"+source.getName());
                 }*/
@@ -321,10 +292,42 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
         });
     }
 
-    private void setNavigationDrawer() {
-        navigationView= (NavigationView) findViewById(R.id.navigation);
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+  /*  @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.search_menu,menu);
+
+        MenuItem search=menu.findItem(R.id.search);
+        SearchView searchView= (SearchView) MenuItemCompat.getActionView(search);
+        search(searchView);
+        return true;
+    }
+
+    private void search(SearchView searchView) {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                //final List<Source> mfilteredlist=filter(msourceList,newText);
+                sourceAdapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+    }*/
+
+
+
+
+    private void setNavigationDrawer() {
+       // navigationView= (NavigationView) findViewById(R.id.navigation);
+
+        navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
@@ -386,10 +389,10 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
                 if (itemid==R.id.hindi){
 
                 }else {
-                    navigationView.setCheckedItem(itemid);
+                    navigation.setCheckedItem(itemid);
                 }
 
-                drawerLayout.closeDrawer(navigationView);
+                drawerLayout.closeDrawer(navigation);
                 progressbar.setVisibility(View.GONE);
 
                 Log.d("TAG", "onNavigationItemSelected: ");

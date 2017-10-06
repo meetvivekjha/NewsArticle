@@ -23,11 +23,11 @@ import model.Source;
  * Created by Freeware Sys on 9/19/2017.
  */
 
-public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder> {
+public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder>{
 
 
     List<Source> sourceList=new ArrayList<>();
-   //List<Source> mfilteredsourcelist=new ArrayList<>();
+  //  List<Source> mfilteredsourcelist=new ArrayList<>();
     Context context;
     Map<String,Integer> hasmap;
     private Clicklistener mclicklistener;
@@ -35,17 +35,10 @@ public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder
     public SourceAdapter(Context applicationContext, List<Source> sourceList, Map<String, Integer> hashMap){
         this.context=applicationContext;
         this.sourceList=sourceList;
-       // this.mfilteredsourcelist=sourceList;
+      // this.mfilteredsourcelist=sourceList;
         this.hasmap=hashMap;
         Log.d("TAG", "SourceAdapter: constructor");
     }
-
-
-   /* public SourceAdapter(Context applicationContext) {
-        this.context=applicationContext;
-    }*/
-
-
 
    @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -56,6 +49,7 @@ public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+       // Source src = mfilteredsourcelist.get(position);
         Source src = sourceList.get(position);
 
         if (!TextUtils.isEmpty(src.getName())) {
@@ -84,7 +78,13 @@ public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder
         this.mclicklistener=mclicklistener;
     }
 
- /*   @Override
+
+    public void setList(List<Source> myList){
+        sourceList.clear();
+        sourceList.addAll(myList);
+    }
+
+ /*  @Override
     public Filter getFilter() {
         return new Filter() {
             @Override
@@ -98,7 +98,7 @@ public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder
                     List<Source> filteredList=new ArrayList<>();
 
                     for (Source source:sourceList){
-                        if (source.getName().toString().contains(charSequence)){
+                        if (source.getName().toLowerCase().contains(charString)){
                             filteredList.add(source);
                         }
                     }
@@ -149,10 +149,6 @@ public class SourceAdapter extends RecyclerView.Adapter<SourceAdapter.ViewHolder
 
 
 
-    public void setList(List<Source> myList){
-        sourceList.clear();
-        sourceList.addAll(myList);
-    }
 
     public interface Clicklistener{
         void itemclicked(View view,int position,List<Source> sourceList);
