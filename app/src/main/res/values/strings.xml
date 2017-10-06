@@ -5,6 +5,29 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="close_drawer">Drawer close</string>
     <string name="open_drawer">Drawer opened</string>
+    <string name="hindi_item_title">हिन्दी</string>
+    <string name="hindi_news">हिन्दी समाचार</string>
+
+    <string name="Amar_Ujala">अमर उजाला</string>
+    <string name="Dainik_jagran">दैनिक जागरण</string>
+    <string name="Dainik_navjyoti">दैनिक नवज्योति</string>
+    <string name="DeshBhandhu">देशबंधु</string>
+    <string name="Divya_Himachal">‎दिव्य हिमाचल</string>
+    <string name="Economic_times">इकॉनोमिक टाइम्स </string>
+    <string name="Haribhoomi">हरी भूमि</string>
+    <string name="Hindustan">हिन्दुस्तान</string>
+    <string name="Jansatta">जनसत्ता</string>
+    <string name="Nai_duniya">नई दुनिया</string>
+    <string name="Navbharat_times">नवभारत टाइम्स </string>
+    <string name="Panchjanya">पाञ्चजन्य</string>
+    <string name="prabhat_khabar">प्रभात खबर</string>
+    <string name="punjab_kesri">पंजाब केसरी</string>
+    <string name="Rajasthan_patrika">राजस्थान पत्रिका</string>
+    <string name="Rashtriya_sahara">राष्ट्रीय सहारा</string>
+    <string name="sanjeevni_today">संजीवनी टुडे</string>
+
+
+
 
     <string name="banner_home_footer">ca-app-pub-8566019934389458/1737793865</string>
     <string name="interstitial_full_screen"> ca-app-pub-8566019934389458/7663766324</string>

@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -24,6 +25,12 @@ public class HindiWebview extends AppCompatActivity {
         setContentView(R.layout.activity_hindi_webview);
 
         webViewHindi= (WebView) findViewById(R.id.webviewHindi);
+        //webViewHindi.getSettings().setBuiltInZoomControls(true);
+        WebSettings webSettings=webViewHindi.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setSupportZoom(true);
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(true);
 
         Intent intent=this.getIntent();
         Bundle extras=intent.getExtras();

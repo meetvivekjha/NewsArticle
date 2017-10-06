@@ -25,7 +25,7 @@ public class HindiActivity extends AppCompatActivity implements HindiNewsAdapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hindi);
 
-        getSupportActionBar().setTitle("Hindi News");
+        getSupportActionBar().setTitle(R.string.hindi_news);
 
         recycler_hindi= (RecyclerView) findViewById(R.id.recycler_hindi);
         RecyclerView.LayoutManager layoutManager;
@@ -69,103 +69,103 @@ public class HindiActivity extends AppCompatActivity implements HindiNewsAdapter
 
         HindiItems hindiItems1 = new HindiItems();
         hindiItems1.setImage_id(R.drawable.amar_ujala);
-        hindiItems1.setName_text("Amar Ujala");
+        hindiItems1.setName_text(getResources().getString(R.string.Amar_Ujala));
         hindiItems1.setUrl("http://www.amarujala.com");
         hindiItemsArrayList.add(hindiItems1);
 
         HindiItems hindiItems2 = new HindiItems();
         hindiItems2.setImage_id(R.drawable.dainik_jagran);
-        hindiItems2.setName_text("Dainik Jagran");
+        hindiItems2.setName_text(getResources().getString(R.string.Dainik_jagran));
         hindiItems2.setUrl("http://www.jagran.com");
         hindiItemsArrayList.add(hindiItems2);
 
         HindiItems hindiItems3 = new HindiItems();
         hindiItems3.setImage_id(R.drawable.dainik_navajyoti);
-        hindiItems3.setName_text("Dainik Navjyoti");
+        hindiItems3.setName_text(getResources().getString(R.string.Dainik_navjyoti));
         hindiItems3.setUrl("http://www.dainiknavajyoti.net");
         hindiItemsArrayList.add(hindiItems3);
 
         HindiItems hindiItems4 = new HindiItems();
         hindiItems4.setImage_id(R.drawable.deshbandhu);
-        hindiItems4.setName_text("DeshBandhu");
+        hindiItems4.setName_text(getResources().getString(R.string.DeshBhandhu));
         hindiItems4.setUrl("http://www.deshbandhu.co.in");
         hindiItemsArrayList.add(hindiItems4);
 
         HindiItems hindiItems5 = new HindiItems();
         hindiItems5.setImage_id(R.drawable.divya_himachal);
-        hindiItems5.setName_text("Divya Himachal");
+        hindiItems5.setName_text(getResources().getString(R.string.Divya_Himachal));
         hindiItems5.setUrl("http://www.divyahimachal.com");
         hindiItemsArrayList.add(hindiItems5);
 
         HindiItems hindiItems6 = new HindiItems();
         hindiItems6.setImage_id(R.drawable.economic_times);
-        hindiItems6.setName_text("Economic Times");
+        hindiItems6.setName_text(getResources().getString(R.string.Economic_times));
         hindiItems6.setUrl("http://allindiannewspapers.com/economictimes-hindi/");
         hindiItemsArrayList.add(hindiItems6);
 
         HindiItems hindiItems7 = new HindiItems();
         hindiItems7.setImage_id(R.drawable.haribhoomi);
-        hindiItems7.setName_text("Hari Bhoomi");
+        hindiItems7.setName_text(getResources().getString(R.string.Haribhoomi));
         hindiItems7.setUrl("http://www.haribhoomi.com");
         hindiItemsArrayList.add(hindiItems7);
 
         HindiItems hindiItems8 = new HindiItems();
         hindiItems8.setImage_id(R.drawable.hindustan);
-        hindiItems8.setName_text("Hindustan");
+        hindiItems8.setName_text(getResources().getString(R.string.Hindustan));
         hindiItems8.setUrl("http://www.livehindustan.com");
         hindiItemsArrayList.add(hindiItems8);
 
         HindiItems hindiItems9 = new HindiItems();
         hindiItems9.setImage_id(R.drawable.jansata);
-        hindiItems9.setName_text("Jansatta");
+        hindiItems9.setName_text(getResources().getString(R.string.Jansatta));
         hindiItems9.setUrl("http://www.jansatta.com");
         hindiItemsArrayList.add(hindiItems9);
 
         HindiItems hindiItems10 = new HindiItems();
         hindiItems10.setImage_id(R.drawable.nai_duniya);
-        hindiItems10.setName_text("Nai Duniya");
+        hindiItems10.setName_text(getResources().getString(R.string.Nai_duniya));
         hindiItems10.setUrl("http://naidunia.jagran.com");
         hindiItemsArrayList.add(hindiItems10);
 
         HindiItems hindiItems11 = new HindiItems();
         hindiItems11.setImage_id(R.drawable.navbharat_times);
-        hindiItems11.setName_text("Navbharat Times");
+        hindiItems11.setName_text(getResources().getString(R.string.Navbharat_times));
         hindiItems11.setUrl("http://navbharattimes.indiatimes.com/");
         hindiItemsArrayList.add(hindiItems11);
 
         HindiItems hindiItems12 = new HindiItems();
         hindiItems12.setImage_id(R.drawable.panchjanya);
-        hindiItems12.setName_text("Panchjanya");
+        hindiItems12.setName_text(getResources().getString(R.string.Panchjanya));
         hindiItems12.setUrl("http://www.panchjanya.com");
         hindiItemsArrayList.add(hindiItems12);
 
         HindiItems hindiItems13 = new HindiItems();
         hindiItems13.setImage_id(R.drawable.prabhat_khabar);
-        hindiItems13.setName_text("Prabhat Khabar");
+        hindiItems13.setName_text(getResources().getString(R.string.prabhat_khabar));
         hindiItems13.setUrl("http://www.prabhatkhabar.com");
         hindiItemsArrayList.add(hindiItems13);
 
         HindiItems hindiItems14 = new HindiItems();
         hindiItems14.setImage_id(R.drawable.punjab_kesri);
-        hindiItems14.setName_text("Punjab Kesari");
+        hindiItems14.setName_text(getResources().getString(R.string.punjab_kesri));
         hindiItems14.setUrl("http://www.punjabkesari.in");
         hindiItemsArrayList.add(hindiItems14);
 
         HindiItems hindiItems15 = new HindiItems();
         hindiItems15.setImage_id(R.drawable.rajasthan_patrika);
-        hindiItems15.setName_text("Rajasthan Patrika");
+        hindiItems15.setName_text(getResources().getString(R.string.Rajasthan_patrika));
         hindiItems15.setUrl("https://www.patrika.com/rajasthan-news");
         hindiItemsArrayList.add(hindiItems15);
 
         HindiItems hindiItems16 = new HindiItems();
         hindiItems16.setImage_id(R.drawable.rashtriya_sahara);
-        hindiItems16.setName_text("Rashtriya Sahara");
+        hindiItems16.setName_text(getResources().getString(R.string.Rashtriya_sahara));
         hindiItems16.setUrl("http://www.rashtriyasahara.com");
         hindiItemsArrayList.add(hindiItems16);
 
         HindiItems hindiItems17 = new HindiItems();
         hindiItems17.setImage_id(R.drawable.sanjivni_today);
-        hindiItems17.setName_text("Sanjeevni Today");
+        hindiItems17.setName_text(getResources().getString(R.string.sanjeevni_today));
         hindiItems17.setUrl("http://www.sanjeevnitoday.com");
         hindiItemsArrayList.add(hindiItems17);
 
