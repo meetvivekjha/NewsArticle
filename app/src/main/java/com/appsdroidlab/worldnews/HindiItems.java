@@ -1,4 +1,4 @@
-package com.example.freewaresys.newsarticle;
+package com.appsdroidlab.worldnews;
 
 /**
  * Created by Freeware Sys on 9/28/2017.

@@ -1,4 +1,4 @@
-package com.example.freewaresys.newsarticle;
+package com.appsdroidlab.worldnews;
 
 import android.content.Context;
 import android.content.Intent;
@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Click
         super.onDestroy();
          minterstitialAd=new InterstitialAd(this);
         minterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
-        AdRequest adRequest=new AdRequest.Builder().addTestDevice("D58035577CA95969B15BBE50A1B91EFC").build();
+        AdRequest adRequest=new AdRequest.Builder().build();
         minterstitialAd.loadAd(adRequest);
         minterstitialAd.setAdListener(new AdListener() {
             @Override

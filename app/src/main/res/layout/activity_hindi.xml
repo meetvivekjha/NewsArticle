@@ -5,7 +5,7 @@
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.freewaresys.newsarticle.HindiActivity">
+    tools:context="com.appsdroidlab.worldnews.HindiActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_hindi"

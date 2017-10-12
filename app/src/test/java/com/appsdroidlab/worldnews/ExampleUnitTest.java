@@ -1,4 +1,4 @@
-package com.example.freewaresys.newsarticle;
+package com.appsdroidlab.worldnews;
 
 import org.junit.Test;
 

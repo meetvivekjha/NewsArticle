@@ -1,4 +1,4 @@
-package com.example.freewaresys.newsarticle;
+package com.appsdroidlab.worldnews;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.example.freewaresys.newsarticle;
+package com.appsdroidlab.worldnews;
 
 import android.content.Context;
 import android.content.Intent;
@@ -79,7 +79,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
         layoutManager = new GridLayoutManager(getApplicationContext(),3);
         recyclerViewSource.setLayoutManager(layoutManager);
 
-        AdRequest adRequest=new AdRequest.Builder().addTestDevice("D58035577CA95969B15BBE50A1B91EFC").build();
+        AdRequest adRequest=new AdRequest.Builder().build();
         madview.loadAd(adRequest);
 
 

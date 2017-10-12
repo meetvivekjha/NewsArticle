@@ -1,4 +1,4 @@
-package com.example.freewaresys.newsarticle;
+package com.appsdroidlab.worldnews;
 
 
 import android.content.Intent;
@@ -98,7 +98,7 @@ public class HindiWebview extends AppCompatActivity {
         super.onDestroy();
         interstitialAdHindi=new InterstitialAd(this);
         interstitialAdHindi.setAdUnitId(getString(R.string.interstitial_full_screen));
-        AdRequest adRequest=new AdRequest.Builder().addTestDevice("D58035577CA95969B15BBE50A1B91EFC").build();
+        AdRequest adRequest=new AdRequest.Builder().build();
         interstitialAdHindi.loadAd(adRequest);
 
         interstitialAdHindi.setAdListener(new AdListener() {
