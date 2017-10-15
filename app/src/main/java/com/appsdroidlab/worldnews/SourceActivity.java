@@ -12,8 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.List;
@@ -26,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements NewsAdapter.ClickListener,PositiveButtonClick {
+public class SourceActivity extends AppCompatActivity implements NewsAdapter.ClickListener,PositiveButtonClick {
 
     private static final String apiKey = "414785b466474d9491ff6e63c70dd2f5";
 
@@ -39,13 +37,13 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Click
   //  OnHomeButtonClicked onHomeButtonClicked;
     InterstitialAd minterstitialAd;
 
-    public MainActivity(){
+    public SourceActivity(){
 
     }
 
-    public MainActivity(Context applicationContext) {
+    public SourceActivity(Context applicationContext) {
         this.context=applicationContext;
-        Log.d("TAG", "MainActivity: constructor ");
+        Log.d("TAG", "SourceActivity: constructor ");
     }
 
 
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Click
         progressbar = (ProgressBar) findViewById(R.id.progressbar);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(MainActivity.this);
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(SourceActivity.this);
         recyclerView.setLayoutManager(manager);
 
         // getSupportActionBar().setHomeButtonEnabled(true);
@@ -140,11 +138,11 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Click
 
     @Override
     public void itemclicked(View view, int position, List<Article> articleList) {
-        //Toast.makeText(MainActivity.this,"item clicked::"+"\n"+articleList.get(position).getTitle(),Toast.LENGTH_SHORT).show();
-        Intent intent=new Intent(MainActivity.this,WebviewActivity.class);
+        //Toast.makeText(SourceActivity.this,"item clicked::"+"\n"+articleList.get(position).getTitle(),Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent(SourceActivity.this,WebviewActivity.class);
         Bundle extras=new Bundle();
         extras.putString("URL",articleList.get(position).getUrl());
-        extras.putString("Author",MainActivity.title);
+        extras.putString("Author", SourceActivity.title);
         intent.putExtras(extras);
         //intent.putExtra("URL",articleList.get(position).getUrl());
 
@@ -167,27 +165,7 @@ public class MainActivity extends AppCompatActivity implements NewsAdapter.Click
         void changeTitle();
     }*/
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-         minterstitialAd=new InterstitialAd(this);
-        minterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
-        AdRequest adRequest=new AdRequest.Builder().build();
-        minterstitialAd.loadAd(adRequest);
-        minterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                showInterstitial();
-            }
 
-        });
-
-    }
-    private void showInterstitial() {
-        if (minterstitialAd.isLoaded()){
-            minterstitialAd.show();
-        }
-    }
 }
 
 

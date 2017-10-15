@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -101,8 +102,8 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
        // Log.d("TAG", "onCreate: setting the Adapter");
         sourceAdapter.setClickListener(this);
 
-        MainActivity mainActivity=new MainActivity(getApplicationContext());
-        //mainActivity.sethomebutton(this);
+        SourceActivity sourceActivity =new SourceActivity(getApplicationContext());
+        //sourceActivity.sethomebutton(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Home");
@@ -220,10 +221,30 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
 
    @Override //for itemclick listener on hamburger icon
        public boolean onOptionsItemSelected(MenuItem item) {
+
+       switch (item.getItemId()) {
+           case  R.id.about:
+               android.app.FragmentManager fragmentManager=getFragmentManager();
+               UrlToSourceFragment urlToSourceFragment=new UrlToSourceFragment();
+               urlToSourceFragment.show(fragmentManager,"Dialog Fragment");
+              /* new AlertDialog.Builder(NavigationActivity.this, AlertDialog.THEME_HOLO_LIGHT)
+                       .setTitle(R.string.about)
+                       .setMessage(R.string.AlertDialogMessage)
+                       .setNegativeButton(R.string.negativeButton, new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialogInterface, int i) {
+                               dialogInterface.dismiss();
+                           }
+                       }).show();
+               return true;*/
+               //  Log.d("TAG", "onOptionsItemSelected: about");
+       }
        Log.d("TAG", "onOptionsItemSelected: ");
         if (mdrawerToggle.onOptionsItemSelected(item)){
             return true;
         }
+
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -294,9 +315,14 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.about,menu);
+        return true;
+    }
 
 
-  /*  @Override
+/*  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.search_menu,menu);
@@ -382,9 +408,21 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
                     apiCall("technology");
                 }
 
+                 /*   new AlertDialog.Builder(NavigationActivity.this,AlertDialog.THEME_HOLO_LIGHT)
+                            .setTitle(R.string.about)
+                            .setMessage(R.string.AlertDialogMessage)
+                            .setNegativeButton(R.string.negativeButton, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            }).show();*/
+
+
                 if (itemid==R.id.hindi){
 
-                }else {
+                }
+                else {
                     getSupportActionBar().setTitle(item.getTitle().toString());
                 }
                 //Toast.makeText(NavigationActivity.this,item.getTitle(),Toast.LENGTH_SHORT).show();
@@ -425,7 +463,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
     @Override
     public void itemclicked(View view, int position, List<Source> sourceList) {
       //  getSupportActionBar().setTitle(sourceList.get(position).getName());
-        Intent intent=new Intent(NavigationActivity.this,MainActivity.class);
+        Intent intent=new Intent(NavigationActivity.this,SourceActivity.class);
         Bundle extras=new Bundle();
         extras.putString("Source_id",sourceList.get(position).getId());
         extras.putString("Source_name",sourceList.get(position).getName());

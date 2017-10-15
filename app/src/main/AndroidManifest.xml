@@ -16,7 +16,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="com.appsdroidlab.worldnews.SplashActivity"
+            android:name=".SplashActivity"
             android:configChanges="orientation|screenSize|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,18 +25,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.appsdroidlab.worldnews.WebviewActivity"
+            android:name=".WebviewActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity
-            android:name="com.appsdroidlab.worldnews.MainActivity"
+            android:name=".SourceActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
-        <activity android:name="com.appsdroidlab.worldnews.HindiActivity" />
-        <activity android:name="com.appsdroidlab.worldnews.HindiWebview" />
+        <activity android:name=".HindiActivity" />
+        <activity android:name=".HindiWebview" />
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
-        <activity android:name="com.appsdroidlab.worldnews.NavigationActivity"></activity>
+        <activity android:name=".NavigationActivity" />
+        <activity android:name=".About"></activity>
     </application>
 
 </manifest>

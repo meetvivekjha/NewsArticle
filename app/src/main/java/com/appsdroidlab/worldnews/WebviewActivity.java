@@ -9,10 +9,15 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 public class WebviewActivity extends AppCompatActivity {
 
     private WebView webView;
     String url;
+    InterstitialAd minterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +84,28 @@ public class WebviewActivity extends AppCompatActivity {
         }
         else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        minterstitialAd=new InterstitialAd(this);
+        minterstitialAd.setAdUnitId(getString(R.string.interstitial_full_screen));
+        AdRequest adRequest=new AdRequest.Builder().build();
+        minterstitialAd.loadAd(adRequest);
+        minterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                showInterstitial();
+            }
+
+        });
+    }
+
+    private void showInterstitial() {
+        if (minterstitialAd.isLoaded()){
+            minterstitialAd.show();
         }
     }
 }

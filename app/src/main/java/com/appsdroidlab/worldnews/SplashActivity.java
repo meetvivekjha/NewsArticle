@@ -11,7 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 public class SplashActivity extends Activity {
-    private static int splash_time_out=3000;
+    private static int splash_time_out=2000;
     Animation anim_slide_down;
     TextView splash_tv;
     Context context;
