@@ -224,7 +224,7 @@ public class NavigationActivity extends AppCompatActivity implements SourceAdapt
 
        switch (item.getItemId()) {
            case  R.id.about:
-               android.app.FragmentManager fragmentManager=getFragmentManager();
+               FragmentManager fragmentManager=getSupportFragmentManager();
                UrlToSourceFragment urlToSourceFragment=new UrlToSourceFragment();
                urlToSourceFragment.show(fragmentManager,"Dialog Fragment");
               /* new AlertDialog.Builder(NavigationActivity.this, AlertDialog.THEME_HOLO_LIGHT)

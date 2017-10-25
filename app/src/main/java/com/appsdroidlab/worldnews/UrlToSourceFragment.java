@@ -4,10 +4,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,7 +17,7 @@ import android.widget.TextView;
  * Created by Freeware Sys on 10/15/2017.
  */
 
-public class UrlToSourceFragment extends android.app.DialogFragment {
+public class UrlToSourceFragment extends DialogFragment {
     Context context;
     TextView urlTV;
     Button dismissButton;
@@ -32,7 +34,8 @@ public class UrlToSourceFragment extends android.app.DialogFragment {
         urlTV.setText("Api Source:"+"https://newsapi.org");
 
 
-        getDialog().setTitle(getActivity().getResources().getString(R.string.about));
+       // getDialog().setTitle(getActivity().getResources().getString(R.string.about));
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         Linkify.addLinks(urlTV,Linkify.WEB_URLS);
 
         dismissButton.setOnClickListener(new View.OnClickListener() {
